@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <div></div>
+    <div className="h-[5000px]"></div>
   )
 }
 

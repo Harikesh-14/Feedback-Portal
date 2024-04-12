@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BiPaperPlane, BiSearch } from "react-icons/bi"
+import { BiPaperPlane, BiSearch, BiX } from "react-icons/bi"
 import { GrLocation } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import { companiesName, locationsName } from "../DataList/companiesAndLocationDataList"
@@ -26,7 +26,7 @@ function SearchContainer() {
     const filteredLocation = locationsName
       .filter((location) => location.locationName.toLowerCase().includes(value.toLowerCase()))
       .map(company => company.locationName)
-      
+
     setSuggestedLocations(filteredLocation)
   }
 
@@ -36,7 +36,7 @@ function SearchContainer() {
 
   const checkLocationField = () => {
     return searchLocation.length === 0 ? "hidden" : "block"
-  }  
+  }
 
   return (
     <section className="w-full p-10 bg-blue-500 flex flex-col justify-center items-center">
@@ -63,6 +63,12 @@ function SearchContainer() {
               ))}
             </ul>
           </div>
+          <span>
+            <BiX
+              className={`text-2xl ${checkCompanyField()} hover:bg-gray-200 rounded-full cursor-pointer `}
+              onClick={() => setSearchCompany("")}
+            />
+          </span>
         </div>
         <div className="relative flex bg-white items-center gap-2 p-2 rounded-lg md:rounded-none md:w-[30%] shadow-md">
           <GrLocation className="text-2xl" />
@@ -86,6 +92,12 @@ function SearchContainer() {
               ))}
             </ul>
           </div>
+          <span>
+            <BiX 
+            className={`text-2xl ${checkLocationField()} hover:bg-gray-200 rounded-full cursor-pointer `}
+            onClick={() => setSearchLocation("")}
+            />
+          </span>
         </div>
         <Link
           to=""

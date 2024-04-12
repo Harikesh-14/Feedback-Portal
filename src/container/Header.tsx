@@ -7,7 +7,7 @@ function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
+    <header className="fixed z-50 top-0 w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
       <h1 className="text-blue-500 text-4xl font-semibold md:text-3xl">CompRev</h1>
 
       <nav className={`md:flex md:flex-row md:items-center ${isNavOpen ? 'flex' : 'hidden'}`}>

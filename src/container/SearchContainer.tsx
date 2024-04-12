@@ -24,24 +24,24 @@ function SearchContainer() {
         </div>
         <Link
           to=""
-          className="group flex items-center justify-center gap-1 bg-orange-600 rounded-lg md:rounded-r-lg text-white w-[10rem] h-12 md:h-14 md:w-[20%] px-4 hover:bg-orange-700 transition ease-linear shadow-md hover:shadow-lg"
+          className="group flex items-center justify-center gap-1 bg-orange-600 rounded-lg md:rounded-l-none md:rounded-r-lg text-white w-[10rem] h-12 mt-6 md:mt-0 md:h-14 md:w-[20%] px-4 hover:bg-orange-700 transition ease-linear shadow-md hover:shadow-lg"
         >
           Find
           <BiPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
         </Link>
       </div>
 
-      <div>
-        <div>
-          <select>
+      <div className="flex flex-wrap gap-4 h-12">
+        <div className="flex">
+          <select className="rounded cursor-pointer outline-none text-center bg-gray-300">
             <option value="reviews">Reviews</option>
             <option value="mostReviews">Most reviews</option>
             <option value="leastReviews">Least reviews</option>
           </select>
         </div>
 
-        <div>
-          <select>
+        <div className="flex">
+          <select className="rounded cursor-pointer outline-none text-center bg-gray-300">
             <option value="rating">Rating</option>
             <option value="mostRating">Highest rating</option>
             <option value="leastRating">Lowest rating</option>

@@ -7,8 +7,8 @@ function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
-    <header className="fixed w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
-      <h1 className="text-gray-900 text-4xl font-semibold md:text-3xl">CompRev</h1>
+    <header className="fixed top-0 w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
+      <h1 className="text-blue-500 text-4xl font-semibold md:text-3xl">CompRev</h1>
 
       <nav className={`md:flex md:flex-row md:items-center ${isNavOpen ? 'flex' : 'hidden'}`}>
         <ul className="flex flex-col gap-4 md:flex-row">
@@ -24,7 +24,7 @@ function Header() {
       <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
         <Link
           to={""}
-          className="group flex items-center gap-1 px-6 py-2 bg-gray-950 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
+          className="group flex items-center gap-1 px-6 py-2 bg-transparent rounded-full text-blue-500 border border-blue-500 transition ease-linear"
         >
           Login
           <GrLogin
@@ -33,7 +33,7 @@ function Header() {
         </Link>
         <Link
           to={""}
-          className="group flex items-center gap-1 px-6 py-2 bg-gray-950 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
+          className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
         >
           Register
           <GrLogout

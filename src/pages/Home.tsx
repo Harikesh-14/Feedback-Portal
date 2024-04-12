@@ -1,6 +1,10 @@
+import SearchContainer from "../container/SearchContainer"
+
 function Home() {
   return (
-    <div className="h-[5000px]"></div>
+    <div>
+      <SearchContainer />
+    </div>
   )
 }
 

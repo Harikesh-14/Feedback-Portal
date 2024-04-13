@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BiPaperPlane, BiSearch, BiX } from "react-icons/bi"
+import { BiArrowToTop, BiPaperPlane, BiSearch, BiX } from "react-icons/bi"
 import { GrLocation } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import { companiesName, locationsName } from "../DataList/companiesAndLocationDataList"
@@ -65,7 +65,7 @@ function SearchContainer() {
           </div>
           <span>
             <BiX
-              className={`text-2xl ${checkCompanyField()} hover:bg-gray-200 rounded-full cursor-pointer `}
+              className={`absolute top-4 right-5 text-2xl ${checkCompanyField()} hover:bg-gray-200 rounded-full cursor-pointer `}
               onClick={() => setSearchCompany("")}
             />
           </span>
@@ -94,7 +94,7 @@ function SearchContainer() {
           </div>
           <span>
             <BiX 
-            className={`text-2xl ${checkLocationField()} hover:bg-gray-200 rounded-full cursor-pointer `}
+            className={`absolute top-4 right-5 text-2xl ${checkLocationField()} hover:bg-gray-200 rounded-full cursor-pointer `}
             onClick={() => setSearchLocation("")}
             />
           </span>
@@ -108,7 +108,7 @@ function SearchContainer() {
         </Link>
       </div>
 
-      <div className="flex flex-wrap gap-4 h-12">
+      <div className="flex flex-wrap gap-4 h-12 text-lg">
         <div className="flex">
           <select className="rounded cursor-pointer outline-none text-center bg-gray-300">
             <option value="reviews">Reviews</option>

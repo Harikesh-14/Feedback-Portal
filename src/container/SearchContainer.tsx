@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BiArrowToTop, BiPaperPlane, BiSearch, BiX } from "react-icons/bi"
+import { BiPaperPlane, BiSearch, BiX } from "react-icons/bi"
 import { GrLocation } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import { companiesName, locationsName } from "../DataList/companiesAndLocationDataList"

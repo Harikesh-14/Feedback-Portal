@@ -5,8 +5,17 @@ function CardsSection() {
   return (
     <section className="w-11/12 mx-auto flex flex-wrap">
       {companiesData.map((data) => (
-        <CompanyCard key={data.id} />
+        data.locations.map((location, index) => (
+          <CompanyCard 
+            key={data + "-" + index}
+            companyName={data.companyName}
+            headquarter={data.headquarter}
+            location={location}
+            industry={data.industry}
+          />
+        ))
       ))}
+      
     </section>
   )
 }

@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom"
+// import { companiesData } from "../DataList/companiesDataList"
 
-function CompanyCard() {
+// type CompanyCardProps = (typeof companiesData)[number]
+
+type CompanyCardProps = {
+  companyName: string
+  headquarter: string
+  location: string
+  industry: string
+}
+
+function CompanyCard({ companyName, headquarter, location, industry}: CompanyCardProps) {
   return (
     <div className="w-full max-w-[40rem] my-5 flex mx-auto border rounded-lg shadow md:hover:shadow-lg md:hover:scale-[1.01] hover:-translate-y-1 transition-all">
       <div className="hidden md:w-1/5 md:flex justify-center items-center border-r">
@@ -12,10 +22,10 @@ function CompanyCard() {
       </div>
       <div className="flex flex-col w-4/5 md:w-3/5 py-4 px-4 md:px-8">
         <div className="pb-5">
-          <h2 className="text-2xl font-semibold pb-2">Google India Ltd</h2>
-          <h4 className="text-gray-500 text-sm font-light">Mountain View, California, USA</h4>
-          <p className="text-gray-900">Bengaluru, Karnataka</p>
-          <p className="border inline-block bg-slate-600 py-1 px-3 rounded-full text-xs mt-3 text-white">Information Technology</p>
+          <h2 className="text-2xl font-semibold pb-2">{companyName}</h2>
+          <h4 className="text-gray-500 text-sm font-light">{headquarter}</h4>
+          <p className="text-gray-900">{location}</p>
+          <p className="border inline-block bg-slate-600 py-1 px-3 rounded-full text-xs mt-3 text-white">{industry}</p>
         </div>
         <div className="w-full flex justify-center">
           <Link to={""} className="w-[8rem] py-2 px-3 bg-orange-600 text-white rounded outline-none active:shadow-lg active:bg-orange-700" >

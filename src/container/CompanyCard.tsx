@@ -10,7 +10,11 @@ type CompanyCardProps = {
   industry: string
 }
 
-function CompanyCard({ companyName, headquarter, location, industry}: CompanyCardProps) {
+function CompanyCard({ companyName, headquarter, location, industry }: CompanyCardProps) {
+  const giveFeedback = () => {
+
+  }
+
   return (
     <div className="w-full max-w-[40rem] my-5 flex mx-auto border rounded-lg shadow md:hover:shadow-lg md:hover:scale-[1.01] hover:-translate-y-1 transition-all">
       <div className="hidden md:w-1/5 md:flex justify-center items-center border-r">
@@ -28,7 +32,11 @@ function CompanyCard({ companyName, headquarter, location, industry}: CompanyCar
           <p className="border inline-block bg-slate-600 py-1 px-3 rounded-full text-xs mt-3 text-white">{industry}</p>
         </div>
         <div className="w-full flex justify-center">
-          <Link to={""} className="w-[8rem] py-2 px-3 bg-orange-600 text-white rounded outline-none active:shadow-lg active:bg-orange-700" >
+          <Link
+            to={""}
+            className="w-[8rem] py-2 px-3 bg-orange-600 text-white rounded outline-none active:shadow-lg active:bg-orange-700"
+            onClick={giveFeedback}
+          >
             Give feedback
           </Link>
         </div>

@@ -3,6 +3,7 @@ import CompanyCard from "./CompanyCard";
 import { companiesData } from "../DataList/companiesDataList";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "./Spinner";
+import FeedbackCard from "./FeedbackCard";
 
 function CardsSection() {
   const [visibleCompanies, setVisibleCompanies] = useState(companiesData.slice(0, 5));
@@ -45,6 +46,7 @@ function CardsSection() {
             />
           ))
         ))}
+        <FeedbackCard />
       </InfiniteScroll>
     </>
   );

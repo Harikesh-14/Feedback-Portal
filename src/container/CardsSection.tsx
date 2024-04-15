@@ -4,10 +4,12 @@ import { companiesData } from "../DataList/companiesDataList";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "./Spinner";
 import FeedbackCard from "./FeedbackCard";
+import { useFeedback } from "../context/feedbackContext";
 
 function CardsSection() {
   const [visibleCompanies, setVisibleCompanies] = useState(companiesData.slice(0, 5));
   const [hasMore, setHasMore] = useState(true);
+  const { isFeedbackVisible } = useFeedback();
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -46,7 +48,7 @@ function CardsSection() {
             />
           ))
         ))}
-        <FeedbackCard />
+        {isFeedbackVisible && <FeedbackCard />}
       </InfiniteScroll>
     </>
   );

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { useFeedback } from "../context/feedbackContext"
 // import { companiesData } from "../DataList/companiesDataList"
 
 // type CompanyCardProps = (typeof companiesData)[number]
@@ -11,8 +12,10 @@ type CompanyCardProps = {
 }
 
 function CompanyCard({ companyName, headquarter, location, industry }: CompanyCardProps) {
-  const giveFeedback = () => {
+  const { isFeedbackVisible, setIsFeedbackVisible } = useFeedback()
 
+  const giveFeedback = () => {
+    setIsFeedbackVisible(!isFeedbackVisible)
   }
 
   return (

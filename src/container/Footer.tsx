@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <section>
+    <section className='w-full mt-10 bg-gray-800 p-5'>
       <div>
         <div>
           <ul>

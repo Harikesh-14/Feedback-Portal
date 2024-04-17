@@ -1,14 +1,32 @@
 import { Link } from "react-router-dom"
 import { links } from "../DataList/headerLinks"
 import { GrLogin, GrLogout } from "react-icons/gr"
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { UserContext } from "../context/userContext"
+import { BiUserPlus } from "react-icons/bi"
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
+  const { userLoggedIn, setUserLoggedIn } = useContext(UserContext)!
+
+  useEffect(() => {
+    fetch("http://localhost:3000/user/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        response.json().then(data => {
+          setUserLoggedIn(data)
+        })
+      })
+  }, [])
+
   const handleNavLinkClick = () => {
-    setIsNavOpen(false); // Close the navbar when a link is clicked
+    setIsNavOpen(false);
   };
+
+  const firstName = userLoggedIn.firstName
 
   return (
     <header className="fixed z-50 top-0 w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
@@ -26,30 +44,47 @@ function Header() {
 
       {/* Login and Register buttons hidden by default on mobile view */}
       <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
-        <Link
-          to={"/login"}
-          className="group flex items-center gap-1 px-6 py-2 bg-transparent rounded-full text-blue-500 border border-blue-500 transition ease-linear"
-          onClick={handleNavLinkClick} // Close the navbar when Login link is clicked
-        >
-          Login
-          <GrLogin
-            className="group-hover:translate-x-1 transition-all"
-          />
-        </Link>
-        <Link
-          to={"/register"}
-          className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
-          onClick={handleNavLinkClick} // Close the navbar when Register link is clicked
-        >
-          Register
-          <GrLogout
-            className="group-hover:translate-x-1 transition-all"
-          />
-        </Link>
+        {firstName ? (
+          <>
+            <Link
+              to={"/login"}
+              className="group flex items-center gap-1 px-6 py-2 bg-transparent rounded-full text-blue-500 border border-blue-500 transition ease-linear"
+              onClick={handleNavLinkClick}
+            >
+              Login
+              <GrLogin
+                className="group-hover:translate-x-1 transition-all"
+              />
+            </Link>
+            <Link
+              to={"/register"}
+              className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
+              onClick={handleNavLinkClick}
+            >
+              Register
+              <BiUserPlus
+                className="group-hover:translate-x-1 transition-all text-xl"
+              />
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              to={"#"}
+              className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
+              onClick={handleNavLinkClick}
+            >
+              Logout
+              <GrLogout
+                className="group-hover:translate-x-1 transition-all"
+              />
+            </Link>
+          </>
+        )}
       </div>
 
-      <button 
-        className="md:hidden focus:outline-none absolute top-5 right-5" 
+      <button
+        className="md:hidden focus:outline-none absolute top-5 right-5"
         onClick={() => setIsNavOpen(!isNavOpen)}
       >
         <div className="flex flex-col gap-1">

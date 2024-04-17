@@ -2,8 +2,8 @@ import { useState } from "react"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
-function Login() {
-  const [passwordVisible, setPasswordVisible] = useState<boolean>(false)
+function Register() {
+  const[passwordVisible, setPasswordVisible] = useState<boolean>(false)
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
@@ -13,14 +13,35 @@ function Login() {
     <section className="w-full mt-24 mb-[7.4rem] md:my-10 flex justify-center">
       <form className="w-[20rem] flex flex-col justify-center items-center gap-5">
         <div className="w-full text-left">
-          <h1 className="text-3xl font-semibold">Welcome back !</h1>
+          <h1 className="text-3xl font-semibold">Welcome to our family</h1>
           <p className="text-gray-500">Please enter your details</p>
         </div>
         <div className="w-full flex flex-col gap-4">
           <div className="flex flex-col">
+            <label className="text-lg font-medium">First Name</label>
+            <input
+              type="text"
+              className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-medium">Last Name</label>
+            <input
+              type="text"
+              className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+            />
+          </div>
+          <div className="flex flex-col">
             <label className="text-lg font-medium">Email</label>
             <input
               type="email"
+              className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-medium">Phone Number</label>
+            <input
+              type="number"
               className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
             />
           </div>
@@ -32,6 +53,7 @@ function Login() {
                 className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
               />
               {passwordVisible ? (<BsEyeSlash className="absolute top-3 right-2 text-lg font-bold cursor-pointer" onClick={togglePasswordVisibility} />) : (<BsEye className="absolute top-3 right-2 text-lg font-bold cursor-pointer" onClick={togglePasswordVisibility} />)}
+              
             </div>
           </div>
         </div>
@@ -49,4 +71,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register

@@ -10,10 +10,10 @@ function Register() {
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
-  const registerUser = (e: React.FormEvent<HTMLFormElement>) => {
+  const registerUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    fetch("http://localhost:3000/user/register", {
+    let response = await fetch("http://localhost:3000/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -28,6 +28,8 @@ function Register() {
     })
       .then(response => response.json())
       .catch(error => console.log(error))
+
+    console.log(response)
   }
 
   const togglePasswordVisibility = () => {

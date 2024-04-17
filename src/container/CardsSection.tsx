@@ -34,7 +34,7 @@ function CardsSection() {
         hasMore={hasMore}
         loader={<Spinner />}
         endMessage={
-          <p className="text-center text-2xl pb-4 font-semibold">No more companies to load</p>
+          <p className="w-full text-center text-2xl pb-4 font-semibold">No more companies to load</p>
         }
       >
         {visibleCompanies.map((company) => (

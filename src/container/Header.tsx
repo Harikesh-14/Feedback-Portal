@@ -22,6 +22,26 @@ function Header() {
       })
   }, [])
 
+  const logoutUser = async () => {
+    try {
+      await fetch("http://localhost:3000/user/logout", {
+        method: "POST",
+        credentials: "include"
+      })
+
+      setUserLoggedIn({
+        id: "",
+        username: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: 0
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const handleNavLinkClick = () => {
     setIsNavOpen(false);
   };
@@ -44,7 +64,7 @@ function Header() {
 
       {/* Login and Register buttons hidden by default on mobile view */}
       <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
-        {firstName ? (
+        {firstName === "" ? (
           <>
             <Link
               to={"/login"}
@@ -72,7 +92,7 @@ function Header() {
             <Link
               to={"#"}
               className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
-              onClick={handleNavLinkClick}
+              onClick={logoutUser}
             >
               Logout
               <GrLogout

@@ -6,6 +6,10 @@ import { useState } from "react"
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
+  const handleNavLinkClick = () => {
+    setIsNavOpen(false); // Close the navbar when a link is clicked
+  };
+
   return (
     <header className="fixed z-50 top-0 w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
       <h1 className="text-blue-500 text-4xl font-semibold md:text-3xl">CompRev</h1>
@@ -14,7 +18,7 @@ function Header() {
         <ul className="flex flex-col gap-4 md:flex-row">
           {links.map((link, index) => (
             <li key={index} className="h-full flex justify-center items-center px-2 text-xl font-sans hover:bg-gray-300 md:py-3 rounded">
-              <Link to={link.path}>{link.title}</Link>
+              <Link to={link.path} onClick={handleNavLinkClick}>{link.title}</Link>
             </li>
           ))}
         </ul>
@@ -25,6 +29,7 @@ function Header() {
         <Link
           to={"/login"}
           className="group flex items-center gap-1 px-6 py-2 bg-transparent rounded-full text-blue-500 border border-blue-500 transition ease-linear"
+          onClick={handleNavLinkClick} // Close the navbar when Login link is clicked
         >
           Login
           <GrLogin
@@ -34,6 +39,7 @@ function Header() {
         <Link
           to={"/register"}
           className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
+          onClick={handleNavLinkClick} // Close the navbar when Register link is clicked
         >
           Register
           <GrLogout

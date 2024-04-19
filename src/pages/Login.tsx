@@ -1,31 +1,43 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import { UserContext } from "../context/userContext";
 
 function Login() {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false)
+  const { setIsUserLoggedIn } = useContext(UserContext)!;
 
   const [username, setUsername] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
   const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
+  
+    try {
+      const response = await fetch("http://localhost:3000/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      });
+  
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
+  
+      const data = await response.json();
+      console.log(data);
 
-    let response = await fetch("http://localhost:3000/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-    })
-      .then(response => response.json())
-      .catch(error => console.log(error))
-
-    console.log(response)
-  }
+      setIsUserLoggedIn(true);
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
+  
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)

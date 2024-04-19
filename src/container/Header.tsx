@@ -8,19 +8,27 @@ import { BiUserPlus } from "react-icons/bi"
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
-  const { userLoggedIn, setUserLoggedIn } = useContext(UserContext)!
+  const { userLoggedIn, setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
 
   useEffect(() => {
     fetch("http://localhost:3000/user/profile", {
       method: "GET",
       credentials: "include"
     })
-      .then(response => {
-        response.json().then(data => {
-          setUserLoggedIn(data)
-        })
-      })
-  }, [])
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch user profile");
+      }
+      return response.json();
+    })
+    .then(data => {
+      setUserLoggedIn(data);
+    })
+    .catch(error => {
+      console.error("Error fetching user profile:", error);
+    });
+  }, [setUserLoggedIn]);
+  
 
   const logoutUser = async () => {
     try {
@@ -37,6 +45,8 @@ function Header() {
         email: "",
         phone: 0
       })
+
+      setIsUserLoggedIn(false)
     } catch (err) {
       console.log(err)
     }
@@ -45,8 +55,6 @@ function Header() {
   const handleNavLinkClick = () => {
     setIsNavOpen(false);
   };
-
-  const firstName = userLoggedIn.firstName
 
   return (
     <header className="fixed z-50 top-0 w-full px-10 py-2 flex flex-col flex-wrap gap-3 justify-center items-center bg-gray-200 md:flex-row md:justify-between">
@@ -64,7 +72,7 @@ function Header() {
 
       {/* Login and Register buttons hidden by default on mobile view */}
       <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
-        {firstName === "" ? (
+        { isUserLoggedIn === false ? (
           <>
             <Link
               to={"/login"}

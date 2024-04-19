@@ -12,6 +12,8 @@ type UserType = {
 type UserContextType = {
   userLoggedIn: UserType
   setUserLoggedIn: React.Dispatch<React.SetStateAction<UserType>>
+  isUserLoggedIn: boolean,
+  setIsUserLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const UserContext = createContext<UserContextType | null>(null)
@@ -26,10 +28,13 @@ function UserContextProvider({ children }: { children: React.ReactNode }) {
     phone: 0
   })
 
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false)
+
   const value: UserContextType = {
     userLoggedIn,
-    setUserLoggedIn
-  
+    setUserLoggedIn,
+    isUserLoggedIn,
+    setIsUserLoggedIn,
   }
 
   return (

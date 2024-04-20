@@ -5,8 +5,8 @@ type UserType = {
   username: string
   firstName: string
   lastName: string
-  email: string
   phone: number
+  message?: string
 }
 
 type UserContextType = {
@@ -24,11 +24,11 @@ function UserContextProvider({ children }: { children: React.ReactNode }) {
     username: "",
     firstName: "",
     lastName: "",
-    email: "",
-    phone: 0
+    phone: 0,
+    message: ""
   })
 
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false)
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const value: UserContextType = {
     userLoggedIn,

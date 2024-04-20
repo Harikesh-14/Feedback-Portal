@@ -30,7 +30,7 @@ function Login() {
         }
       } else {
         setIsUserLoggedIn(true)
-        // window.location.href = "/"
+        window.location.href = "/"
       }
     } catch (error) {
       console.error("Error during login:", error);

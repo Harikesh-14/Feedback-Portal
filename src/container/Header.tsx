@@ -8,7 +8,7 @@ import { BiUserPlus } from "react-icons/bi"
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
-  const { userLoggedIn, setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
+  const { setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
 
   useEffect(() => {
     fetch('http://localhost:3000/user/profile', {
@@ -17,7 +17,7 @@ function Header() {
       response.json().then(userInfo => {
         setUserLoggedIn(userInfo)
 
-        if(userInfo.id !== "") {
+        if (userInfo.message === 'Logged in') {
           setIsUserLoggedIn(true)
         } else {
           setIsUserLoggedIn(false)
@@ -25,9 +25,6 @@ function Header() {
       })
     })
   }, []);
-
-  console.log(userLoggedIn)
-
 
   const logoutUser = async () => {
     try {
@@ -41,8 +38,8 @@ function Header() {
         username: "",
         firstName: "",
         lastName: "",
-        email: "",
-        phone: 0
+        phone: 0,
+        message: ""
       })
 
       setIsUserLoggedIn(false)
@@ -71,7 +68,20 @@ function Header() {
 
       {/* Login and Register buttons hidden by default on mobile view */}
       <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
-        {isUserLoggedIn === false ? (
+        {isUserLoggedIn ? (
+          <>
+            <Link
+              to={"#"}
+              className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
+              onClick={logoutUser}
+            >
+              Logout
+              <GrLogout
+                className="group-hover:translate-x-1 transition-all"
+              />
+            </Link>
+          </>
+        ) : (
           <>
             <Link
               to={"/login"}
@@ -91,19 +101,6 @@ function Header() {
               Register
               <BiUserPlus
                 className="group-hover:translate-x-1 transition-all text-xl"
-              />
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link
-              to={"#"}
-              className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"
-              onClick={logoutUser}
-            >
-              Logout
-              <GrLogout
-                className="group-hover:translate-x-1 transition-all"
               />
             </Link>
           </>

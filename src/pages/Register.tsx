@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 
 function Register() {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false)
@@ -9,31 +9,49 @@ function Register() {
   const [email, setEmail] = useState<string>("")
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [password, setPassword] = useState<string>("")
+  const [resdirectToLogin, setRedirectToLogin] = useState<boolean>(false)
 
   const registerUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    let response = await fetch("http://localhost:3000/user/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phone: Number.parseInt(phoneNumber),
-        password: password
+    try {
+      let response = await fetch("http://localhost:3000/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phone: Number.parseInt(phoneNumber),
+          password: password
+        })
       })
-    })
-      .then(response => response.json())
-      .catch(error => console.log(error))
 
-    console.log(response)
+      if (!response.ok) {
+        const errorData = await response.json()
+
+        if (errorData.message === "User already exists") {
+          alert("User already exists")
+        } else {
+          alert("Something went wrong")
+        }
+      } else {
+        alert("User registered successfully")
+        setRedirectToLogin(true)
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
+  }
+
+  if (resdirectToLogin) {
+    return <Navigate to={"/login"} />
   }
 
   return (
@@ -101,7 +119,7 @@ function Register() {
           >
             Submit
           </button>
-          <p className="text-center font-medium">Don't have an account? <Link to={"/register"} className="text-blue-700">Register</Link></p>
+          <p className="text-center font-medium">Already have an account? <Link to={"/register"} className="text-blue-700">Login</Link></p>
         </div>
       </form>
     </section>

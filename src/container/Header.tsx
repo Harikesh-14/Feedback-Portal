@@ -11,24 +11,23 @@ function Header() {
   const { userLoggedIn, setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
 
   useEffect(() => {
-    fetch("http://localhost:3000/user/profile", {
-      method: "GET",
-      credentials: "include"
+    fetch('http://localhost:3000/user/profile', {
+      credentials: 'include'
+    }).then(response => {
+      response.json().then(userInfo => {
+        setUserLoggedIn(userInfo)
+
+        if(userInfo.id !== "") {
+          setIsUserLoggedIn(true)
+        } else {
+          setIsUserLoggedIn(false)
+        }
+      })
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch user profile");
-      }
-      return response.json();
-    })
-    .then(data => {
-      setUserLoggedIn(data);
-    })
-    .catch(error => {
-      console.error("Error fetching user profile:", error);
-    });
-  }, [setUserLoggedIn]);
-  
+  }, []);
+
+  console.log(userLoggedIn)
+
 
   const logoutUser = async () => {
     try {
@@ -72,7 +71,7 @@ function Header() {
 
       {/* Login and Register buttons hidden by default on mobile view */}
       <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
-        { isUserLoggedIn === false ? (
+        {isUserLoggedIn === false ? (
           <>
             <Link
               to={"/login"}

@@ -14,25 +14,24 @@ function Login() {
     e.preventDefault();
   
     try {
-      const response = await fetch("http://localhost:3000/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password
-        })
-      });
-  
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
-  
-      const data = await response.json();
-      console.log(data);
+      let response = await fetch('http://localhost:3000/user/login', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include'
+      })
 
-      setIsUserLoggedIn(true);
+      if (!response.ok) {
+        const errorData = await response.json()
+        if (errorData.error === 'Invalid credentials'){
+          alert("Invalid credentials")
+        } else {
+          alert("An error occured")
+        }
+      } else {
+        setIsUserLoggedIn(true)
+        // window.location.href = "/"
+      }
     } catch (error) {
       console.error("Error during login:", error);
     }

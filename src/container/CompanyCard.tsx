@@ -12,10 +12,16 @@ type CompanyCardProps = {
 }
 
 function CompanyCard({ companyName, headquarter, location, industry }: CompanyCardProps) {
-  const { isFeedbackVisible, setIsFeedbackVisible } = useFeedback()
+  const { isFeedbackVisible, setIsFeedbackVisible, setFeedbackData } = useFeedback()
 
   const giveFeedback = () => {
     setIsFeedbackVisible(!isFeedbackVisible)
+    setFeedbackData({
+      companyName,
+      headquarter,
+      location,
+      industry,
+    })
   }
 
   return (

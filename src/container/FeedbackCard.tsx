@@ -6,11 +6,50 @@ import { useFeedback } from "../context/feedbackContext"
 
 function FeedbackCard() {
   const [rating, setRating] = useState(0)
+  const [feedbackText, setFeedbackText] = useState("")
   const [hoverRating, setHoverRating] = useState(0)
-  const { isFeedbackVisible, setIsFeedbackVisible } = useFeedback()
+  const { isFeedbackVisible, setIsFeedbackVisible, feedbackData } = useFeedback()
 
   const handleStartClick = (value: number) => {
     setRating(value)
+  }
+
+  const submitFeedback = async () => {
+    // console.log("Rating: ", rating)
+    // console.log("Feedback: ", feedbackText)
+    // console.log("Company Name: ", feedbackData.companyName)
+    // console.log("Location: ", feedbackData.location)
+    // console.log("Headquarter: ", feedbackData.headquarter)
+    // console.log("Industry: ", feedbackData.industry)
+
+    try {
+      let response = await fetch("http://localhost:3000/feedback/submit", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          companyName: feedbackData.companyName,
+          location: feedbackData.location,
+          headquarter: feedbackData.headquarter,
+          industry: feedbackData.industry,
+          rating: rating,
+          feedback: feedbackText
+        })
+      })
+
+      if (!response.ok) {
+        alert("Something went wrong. Please try again later")
+      } else {
+        alert("Feedback submitted successfully")
+        setIsFeedbackVisible(!isFeedbackVisible)
+        setRating(0)
+      }
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -50,6 +89,8 @@ function FeedbackCard() {
           <textarea
             className="w-full min-h-52 p-3 text-lg border border-gray-300 rounded mt-4 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
             placeholder="Enter your feedback here..."
+            value={feedbackText}
+            onChange={(e) => setFeedbackText(e.target.value)}
             maxLength={3000}
             required
           />
@@ -59,10 +100,7 @@ function FeedbackCard() {
         <Link
           to={""}
           className="w-[10rem] flex justify-center items-center  py-2 px-3items-center gap-2 bg-orange-500 rounded text-white hover:bg-orange-600"
-          onClick={() => {
-            setIsFeedbackVisible(!isFeedbackVisible)
-            setRating(0)
-          }}
+          onClick={submitFeedback}
         >
           Add Feedback
           <BiPen className="text-xl group-hover:translate-y-0.5 group-hover:-translate-x-0.5 transition-all" />

@@ -15,13 +15,6 @@ function FeedbackCard() {
   }
 
   const submitFeedback = async () => {
-    // console.log("Rating: ", rating)
-    // console.log("Feedback: ", feedbackText)
-    // console.log("Company Name: ", feedbackData.companyName)
-    // console.log("Location: ", feedbackData.location)
-    // console.log("Headquarter: ", feedbackData.headquarter)
-    // console.log("Industry: ", feedbackData.industry)
-
     try {
       let response = await fetch("http://localhost:3000/feedback/submit", {
         method: "POST",

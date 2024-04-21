@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import SearchContainer from "../container/SearchContainer";
 import ViewPartialFeedback from "../container/ViewPartialFeedback";
-import { FeedbackT } from "../types";
+import type { FeedbackT } from "../types";
+import ViewFullFeedback from "../container/ViewFullFeedback";
 
 export default function Reviews() {
   const [feedbackData, setFeedbackData] = useState<FeedbackT>([])
@@ -12,6 +13,7 @@ export default function Reviews() {
       credentials: "include"
     }).then(response => {
       response.json().then(feedbackInfo => {
+        console.log(feedbackInfo)
         setFeedbackData(feedbackInfo)
       })
     })
@@ -30,10 +32,11 @@ export default function Reviews() {
             industry={feedback.industry}
             location={feedback.location}
             rating={feedback.rating}
-            reviewDate={feedback.reviewDate}
+            createdAt={feedback.createdAt}
           />
         ))}
       </div>
+      <ViewFullFeedback />
     </div>
   )
 }

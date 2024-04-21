@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom"
 import { FeedbackDataT } from "../types"
 import { BsStarFill } from "react-icons/bs"
+import { useViewFeedback } from "../context/viewFeedbackContext"
+import { useEffect } from "react"
 
-function ViewPartialFeedback({ companyName, feedback, headquarter, industry, location, rating, reviewDate }: FeedbackDataT) {
+function ViewPartialFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt }: FeedbackDataT) {
+  const { toggleVisibility, setFullFeedback } = useViewFeedback()
+  
+  useEffect(() => {
+    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt })
+  }, [])
+
   const fullFeedback = () => {
-    console.log("Full feedback")
+    toggleVisibility()
   }
+
+  console.log(companyName, headquarter, industry, location, rating, createdAt)
 
   return (
     <div className="w-full max-w-[40rem] my-5 flex mx-auto border rounded-lg shadow md:hover:shadow-lg md:hover:scale-[1.01] hover:-translate-y-1 transition-all">
@@ -21,7 +31,7 @@ function ViewPartialFeedback({ companyName, feedback, headquarter, industry, loc
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-semibold pb-2">{companyName}</h2>
             <div className="flex flex-col-reverse justify-end items-center gap-1 mt-2">
-              <p className="text-xs font-medium text-gray-400">14th July 2003</p>
+              <p className="text-xs font-medium text-gray-400">{createdAt}</p>
               <div className="flex justify-center gap-1">
                 {[...Array(5)].map((_, index) => (
                   <span

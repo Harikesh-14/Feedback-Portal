@@ -5,7 +5,7 @@ export type FeedbackDataT = {
   industry: string
   location: string
   rating: number
-  reviewDate: Date
+  createdAt: string
 }
 
 export type FeedbackT = FeedbackDataT[]

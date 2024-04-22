@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import { FeedbackDataT } from "../types"
 import { BsStarFill } from "react-icons/bs"
 import { useViewFeedback } from "../context/viewFeedbackContext"
-import { useEffect } from "react"
 
 function ViewPartialFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt }: FeedbackDataT) {
   const { toggleVisibility, setFullFeedback } = useViewFeedback()

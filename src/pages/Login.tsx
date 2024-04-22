@@ -26,7 +26,7 @@ function Login() {
         if (errorData.error === 'Invalid credentials'){
           alert("Invalid credentials")
         } else {
-          alert("An error occured")
+          alert("An error occurred")
         }
       } else {
         setIsUserLoggedIn(true)

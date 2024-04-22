@@ -6,13 +6,10 @@ import { useEffect } from "react"
 
 function ViewPartialFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt }: FeedbackDataT) {
   const { toggleVisibility, setFullFeedback } = useViewFeedback()
-  
-  useEffect(() => {
-    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt })
-  }, [])
 
   const fullFeedback = () => {
     toggleVisibility()
+    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt })
   }
 
   console.log(companyName, headquarter, industry, location, rating, createdAt)

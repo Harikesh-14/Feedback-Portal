@@ -1,5 +1,5 @@
 // import InfiniteScroll from "react-infinite-scroll-component";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchContainer from "../container/SearchContainer";
 import ViewPartialFeedback from "../container/ViewPartialFeedback";
 import type { FeedbackT } from "../types";
@@ -24,8 +24,8 @@ export default function Reviews() {
       <SearchContainer />
       <div className="w-full flex flex-wrap justify-center items-center gap-4 p-4">
         {feedbackData.map((feedback, index) => (
-          <ViewPartialFeedback
-            key={index}
+          <React.Fragment key={index}>
+            <ViewPartialFeedback
             companyName={feedback.companyName}
             feedback={feedback.feedback}
             headquarter={feedback.headquarter}
@@ -34,6 +34,7 @@ export default function Reviews() {
             rating={feedback.rating}
             createdAt={feedback.createdAt}
           />
+          </React.Fragment>
         ))}
       </div>
       <ViewFullFeedback />

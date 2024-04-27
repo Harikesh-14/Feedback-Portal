@@ -1,42 +1,26 @@
 import { useState } from "react"
 import { BiPaperPlane, BiSearch, BiX } from "react-icons/bi"
-import { GrLocation } from "react-icons/gr"
 import { Link } from "react-router-dom"
-import { companiesName, locationsName } from "../DataList/companiesAndLocationDataList"
+import { companiesName } from "../DataList/companiesAndLocationDataList"
+import { useSearchContext } from "../context/searchContext"
 
 function SearchContainer() {
-  const [searchCompany, setSearchCompany] = useState<string>("")
-  const [searchLocation, setSearchLocation] = useState<string>("")
+  const { searchCriteria, setSearchCriteria } = useSearchContext();
   const [isCompanyVisible, setIsCompanyVisible] = useState<Boolean>(false)
-  const [isLocationVisible, setIsLocationVisible] = useState<Boolean>(false)
   const [suggestedCompanies, setSuggestedCompanies] = useState<string[]>([])
-  const [suggestedLocations, setSuggestedLocations] = useState<string[]>([])
 
   const handleCompaniesInputChange = (value: string) => {
-    setSearchCompany(value)
+    setSearchCriteria(value); // Set the search criteria in the context
     const filteredCompanies = companiesName
       .filter((company) => company.companyName.toLowerCase().includes(value.toLowerCase()))
-      .map((company) => company.companyName)
+      .map((company) => company.companyName);
 
-    setSuggestedCompanies(filteredCompanies)
-  }
-
-  const handleLocationInputChange = (value: string) => {
-    setSearchLocation(value)
-    const filteredLocation = locationsName
-      .filter((location) => location.locationName.toLowerCase().includes(value.toLowerCase()))
-      .map(company => company.locationName)
-
-    setSuggestedLocations(filteredLocation)
-  }
+    setSuggestedCompanies(filteredCompanies);
+  };
 
   const checkCompanyField = () => {
-    return searchCompany.length === 0 ? "hidden" : "block"
-  }
-
-  const checkLocationField = () => {
-    return searchLocation.length === 0 ? "hidden" : "block"
-  }
+    return searchCriteria.length === 0 ? "hidden" : "block"; // Check against searchCriteria
+  };
 
   return (
     <section className="w-full p-10 bg-blue-500 flex flex-col justify-center items-center">
@@ -47,7 +31,7 @@ function SearchContainer() {
             type="text"
             placeholder="Company name or industry"
             className="w-full outline-none h-10 px-2 font-sans"
-            value={searchCompany}
+            value={searchCriteria} // Use searchCriteria
             onChange={(e) => handleCompaniesInputChange(e.target.value)}
             onFocus={() => setIsCompanyVisible(true)}
             onBlur={() => setIsCompanyVisible(false)}
@@ -66,36 +50,7 @@ function SearchContainer() {
           <span>
             <BiX
               className={`absolute top-4 right-5 text-2xl ${checkCompanyField()} hover:bg-gray-200 rounded-full cursor-pointer `}
-              onClick={() => setSearchCompany("")}
-            />
-          </span>
-        </div>
-        <div className="relative flex bg-white items-center gap-2 p-2 rounded-lg md:rounded-none md:w-[30%] shadow-md">
-          <GrLocation className="text-2xl" />
-          <input
-            type="text"
-            placeholder="Location name"
-            className="w-full outline-none h-10 px-2"
-            value={searchLocation}
-            onChange={(e) => handleLocationInputChange(e.target.value)}
-            onFocus={() => setIsLocationVisible(true)}
-            onBlur={() => setIsLocationVisible(false)}
-          />
-          <div>
-            <ul
-              className={`absolute z-10 ${isLocationVisible ? "block" : "hidden"} ${checkLocationField()} h-auto max-h-[25rem] top-3 left-0 w-full bg-white rounded-lg shadow-md mt-12 focus:block overflow-y-auto`}
-            >
-              {suggestedLocations.map((lname, index) => (
-                <li key={index} className="p-2 hover:bg-gray-100 cursor-pointer">
-                  {lname}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <span>
-            <BiX 
-            className={`absolute top-4 right-5 text-2xl ${checkLocationField()} hover:bg-gray-200 rounded-full cursor-pointer `}
-            onClick={() => setSearchLocation("")}
+              onClick={() => setSearchCriteria("")}
             />
           </span>
         </div>

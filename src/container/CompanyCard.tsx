@@ -9,9 +9,10 @@ type CompanyCardProps = {
   headquarter: string
   location: string
   industry: string
+  searchCriteria: string
 }
 
-function CompanyCard({ companyName, headquarter, location, industry }: CompanyCardProps) {
+function CompanyCard({ companyName, headquarter, location, industry, searchCriteria }: CompanyCardProps) {
   const { isFeedbackVisible, setIsFeedbackVisible, setFeedbackData } = useFeedback()
 
   const giveFeedback = () => {
@@ -24,7 +25,17 @@ function CompanyCard({ companyName, headquarter, location, industry }: CompanyCa
     })
   }
 
-  return (
+  const matchesSearchCriteria = () => {
+    const criteria = searchCriteria.toLowerCase();
+    return (
+      companyName.toLowerCase().includes(criteria) ||
+      headquarter.toLowerCase().includes(criteria) ||
+      location.toLowerCase().includes(criteria) ||
+      industry.toLowerCase().includes(criteria)
+    );
+  };
+
+  return matchesSearchCriteria() ? (
     <div className="w-full max-w-[40rem] my-5 flex mx-auto border rounded-lg shadow md:hover:shadow-lg md:hover:scale-[1.01] hover:-translate-y-1 transition-all">
       <div className="hidden md:w-1/5 md:flex justify-center items-center border-r">
         <img
@@ -61,7 +72,7 @@ function CompanyCard({ companyName, headquarter, location, industry }: CompanyCa
         </div>
       </div>
     </div>
-  )
+  ) : null;
 }
 
 export default CompanyCard

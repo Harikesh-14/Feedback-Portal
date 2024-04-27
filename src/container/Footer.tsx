@@ -1,6 +1,6 @@
 import { BiCopyright } from 'react-icons/bi'
-import { BsGithub, BsInstagram, BsLinkedin, BsTwitterX } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { links1, links2 } from '../DataList/footerLinks'
 
 function Footer() {
   return (
@@ -8,18 +8,24 @@ function Footer() {
       <div className='flex flex-col gap-10 py-10'>
         <div>
           <ul className='flex gap-7 text-3xl justify-center'>
-            <li className='text-black bg-white p-2 rounded-full hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}><BsInstagram /></Link></li>
-            <li className='text-black bg-white p-2 rounded-full hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}><BsTwitterX /></Link></li>
-            <li className='text-black bg-white p-2 rounded-full hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}><BsLinkedin /></Link></li>
-            <li className='text-black bg-white p-2 rounded-full hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}><BsGithub /></Link></li>
+            {links2.map((link) => (
+              <li key={link.id} className='text-black bg-white p-2 rounded-full hover:scale-105 hover:-translate-y-1 transition-all'>
+                <Link to={link.path} target='_blank' >
+                  {link.icons}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <ul className='flex gap-5 text-xl justify-center'>
-            <li className='hover:bg-gray-900 px-3 py-1 rounded-full border-transparent hover:border-gray-950 hover:bg-opacity-80 hover:scale-105 hover:-translate-y-1 transition-all'><Link to={"/"}>Home</Link></li>
-            <li className='hover:bg-gray-900 px-3 py-1 rounded-full border-transparent hover:border-gray-950 hover:bg-opacity-80 hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}>Reviews</Link></li>
-            <li className='hover:bg-gray-900 px-3 py-1 rounded-full border-transparent hover:border-gray-950 hover:bg-opacity-80 hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}>About</Link></li>
-            <li className='hover:bg-gray-900 px-3 py-1 rounded-full border-transparent hover:border-gray-950 hover:bg-opacity-80 hover:scale-105 hover:-translate-y-1 transition-all'><Link to={""}>Contact</Link></li>
+            {links1.map(link => (
+              <li key={link.id} className='hover:bg-gray-900 px-3 py-1 rounded-full border-transparent hover:border-gray-950 hover:bg-opacity-80 hover:scale-105 hover:-translate-y-1 transition-all'>
+                <a href={link.path} target='_blank'>
+                  {link.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

@@ -9,12 +9,12 @@ import { useSearchContext } from "../context/searchContext";
 
 function CardsSection() {
   const [visibleCompanies, setVisibleCompanies] = useState(companiesData.slice(0, 5));
+  const [feedbackData, setFeedbackData] = useState({});
   const [hasMore, setHasMore] = useState(true);
   const { isFeedbackVisible } = useFeedback();
   const { searchCriteria } = useSearchContext();
 
   useEffect(() => {
-    // Filter companies based on searchCriteria when it changes
     const filteredCompanies = companiesData.filter(company =>
       company.locations.some(location =>
         location.toLowerCase().includes(searchCriteria.toLowerCase())
@@ -23,6 +23,17 @@ function CardsSection() {
     setVisibleCompanies(filteredCompanies.slice(0, 5)); // Update visibleCompanies
     setHasMore(filteredCompanies.length > visibleCompanies.length); // Update hasMore
   }, [searchCriteria]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/feedback/all", {
+      credentials: "include"
+    }).then(response => {
+      response.json().then(feedbackInfo => {
+        console.log(feedbackInfo[1].rating)
+        setFeedbackData(feedbackInfo)
+      })
+    })
+  }, [])
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -58,7 +69,8 @@ function CardsSection() {
               headquarter={company.headquarter}
               location={location}
               industry={company.industry}
-              searchCriteria={searchCriteria} // Add the searchCriteria prop
+              searchCriteria={searchCriteria}
+              feedbackData={{ averageRating: 0, totalReviews: 0 }} // Pass feedback data to CompanyCard
             />
           ))
         ))}

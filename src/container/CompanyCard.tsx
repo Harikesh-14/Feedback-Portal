@@ -10,9 +10,13 @@ type CompanyCardProps = {
   location: string
   industry: string
   searchCriteria: string
+  feedbackData: {
+    averageRating: number
+    totalReviews: number
+  }
 }
 
-function CompanyCard({ companyName, headquarter, location, industry, searchCriteria }: CompanyCardProps) {
+function CompanyCard({ companyName, headquarter, location, industry, searchCriteria, feedbackData }: CompanyCardProps) {
   const { isFeedbackVisible, setIsFeedbackVisible, setFeedbackData } = useFeedback()
 
   const giveFeedback = () => {
@@ -63,11 +67,11 @@ function CompanyCard({ companyName, headquarter, location, industry, searchCrite
       </div>
       <div className="md:w-1/5 p-4 flex flex-col justify-center items-center gap-4 border-l">
         <div className="h-20 w-20 border-2 border-gray-200 rounded bg-gray-100 flex flex-col">
-          <p className="h-[90%] text-3xl flex items-center justify-center">10</p>
+          <p className="h-[90%] text-3xl flex items-center justify-center">{feedbackData.averageRating.toFixed(1)}</p>
           <p className="text-center font-semibold border-t-2 bg-white">Stars</p>
         </div>
         <div className="h-20 w-20 border-2 border-gray-200 rounded bg-gray-100 flex flex-col">
-          <p className="h-[90%] text-3xl flex items-center justify-center">100</p>
+          <p className="h-[90%] text-3xl flex items-center justify-center">{feedbackData.totalReviews}</p>
           <p className="text-center font-semibold border-t-2 bg-white">Reviews</p>
         </div>
       </div>

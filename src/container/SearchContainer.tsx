@@ -19,8 +19,13 @@ function SearchContainer() {
   };
 
   const checkCompanyField = () => {
-    return searchCriteria.length === 0 ? "hidden" : "block"; // Check against searchCriteria
+    return searchCriteria.length === 0 ? "hidden" : "block";
   };
+
+  const addSuggestedInSearchField = (val: string) => {
+    setSearchCriteria(val);
+    setIsCompanyVisible(false);
+  };  
 
   return (
     <section className="w-full p-10 bg-blue-500 flex flex-col justify-center items-center">
@@ -31,17 +36,20 @@ function SearchContainer() {
             type="text"
             placeholder="Company name or industry"
             className="w-full outline-none h-10 px-2 font-sans"
-            value={searchCriteria} // Use searchCriteria
+            value={searchCriteria}
             onChange={(e) => handleCompaniesInputChange(e.target.value)}
             onFocus={() => setIsCompanyVisible(true)}
-            onBlur={() => setIsCompanyVisible(false)}
           />
           <div>
             <ul
               className={`absolute z-10 ${isCompanyVisible ? "block" : "hidden"} ${checkCompanyField()} h-auto max-h-[25rem] top-3 left-0 w-full bg-white rounded-lg shadow-md mt-12 focus:block overflow-y-auto`}
             >
               {suggestedCompanies.map((cname, index) => (
-                <li key={index} className="p-2 hover:bg-gray-100 cursor-pointer">
+                <li
+                  key={index}
+                  className="p-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => addSuggestedInSearchField(cname)}
+                >
                   {cname}
                 </li>
               ))}

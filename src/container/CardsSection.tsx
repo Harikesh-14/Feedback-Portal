@@ -7,9 +7,15 @@ import FeedbackCard from "./FeedbackCard";
 import { useFeedback } from "../context/feedbackContext";
 import { useSearchContext } from "../context/searchContext";
 
+interface FeedbackInfo {
+  _id: string;
+  location: string;
+  averageRating: number;
+}
+
 function CardsSection() {
   const [visibleCompanies, setVisibleCompanies] = useState(companiesData.slice(0, 5));
-  const [feedbackData, setFeedbackData] = useState({});
+  const [feedbackData, setFeedbackData] = useState<FeedbackInfo[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const { isFeedbackVisible } = useFeedback();
   const { searchCriteria } = useSearchContext();
@@ -20,20 +26,24 @@ function CardsSection() {
         location.toLowerCase().includes(searchCriteria.toLowerCase())
       ) || company.companyName.toLowerCase().includes(searchCriteria.toLowerCase())
     );
-    setVisibleCompanies(filteredCompanies.slice(0, 5)); // Update visibleCompanies
-    setHasMore(filteredCompanies.length > visibleCompanies.length); // Update hasMore
+    setVisibleCompanies(filteredCompanies.slice(0, 5));
+    setHasMore(filteredCompanies.length > visibleCompanies.length);
   }, [searchCriteria]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/feedback/all", {
-      credentials: "include"
+    fetch('http://localhost:3000/feedback/average-rating', {
+      credentials: 'include'
     }).then(response => {
-      response.json().then(feedbackInfo => {
-        console.log(feedbackInfo[1].rating)
-        setFeedbackData(feedbackInfo)
-      })
-    })
-  }, [])
+      response.json().then((feedbackInfo: FeedbackInfo[]) => {
+        setFeedbackData(feedbackInfo);
+      });
+    });
+  }, []);
+
+  const findAverageRating = (companyName: string, location: string) => {
+    const feedbackItem = feedbackData.find(item => item._id === companyName && item.location === location);
+    return feedbackItem ? feedbackItem.averageRating : 0;
+  };
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -70,10 +80,14 @@ function CardsSection() {
               location={location}
               industry={company.industry}
               searchCriteria={searchCriteria}
-              feedbackData={{ averageRating: 0, totalReviews: 0 }} // Pass feedback data to CompanyCard
+              feedbackData={{
+                averageRating: findAverageRating(company.companyName, location),
+                totalReviews: 5
+              }}
             />
           ))
         ))}
+
         {isFeedbackVisible && <FeedbackCard />}
       </InfiniteScroll>
     </>

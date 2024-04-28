@@ -7,15 +7,22 @@ import FeedbackCard from "./FeedbackCard";
 import { useFeedback } from "../context/feedbackContext";
 import { useSearchContext } from "../context/searchContext";
 
-interface FeedbackInfo {
+interface FeedbackStars {
   _id: string;
   location: string;
   averageRating: number;
 }
 
+interface FeedbackReviews {
+  _id: string;
+  location: string;
+  totalReviews: number;
+}
+
 function CardsSection() {
   const [visibleCompanies, setVisibleCompanies] = useState(companiesData.slice(0, 5));
-  const [feedbackData, setFeedbackData] = useState<FeedbackInfo[]>([]);
+  const [feedbackStars, setFeedbackStars] = useState<FeedbackStars[]>([]);
+  const [feedbackReviews, setFeedbackReviews] = useState<FeedbackReviews[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const { isFeedbackVisible } = useFeedback();
   const { searchCriteria } = useSearchContext();
@@ -34,15 +41,30 @@ function CardsSection() {
     fetch('http://localhost:3000/feedback/average-rating', {
       credentials: 'include'
     }).then(response => {
-      response.json().then((feedbackInfo: FeedbackInfo[]) => {
-        setFeedbackData(feedbackInfo);
+      response.json().then((feedbackInfo: FeedbackStars[]) => {
+        setFeedbackStars(feedbackInfo);
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/feedback/total-reviews', {
+      credentials: 'include'
+    }).then(response => {
+      response.json().then((feedbackInfo: FeedbackReviews[]) => {
+        setFeedbackReviews(feedbackInfo);
       });
     });
   }, []);
 
   const findAverageRating = (companyName: string, location: string) => {
-    const feedbackItem = feedbackData.find(item => item._id === companyName && item.location === location);
+    const feedbackItem = feedbackStars.find(item => item._id === companyName && item.location === location);
     return feedbackItem ? feedbackItem.averageRating : 0;
+  };
+
+  const findTotalReviews = (companyName: string, location: string) => {
+    const feedbackItem = feedbackReviews.find(item => item._id === companyName && item.location === location);
+    return feedbackItem ? feedbackItem.totalReviews : 0;
   };
 
   const fetchMoreData = () => {
@@ -82,7 +104,7 @@ function CardsSection() {
               searchCriteria={searchCriteria}
               feedbackData={{
                 averageRating: findAverageRating(company.companyName, location),
-                totalReviews: 5
+                totalReviews: findTotalReviews(company.companyName, location)
               }}
             />
           ))

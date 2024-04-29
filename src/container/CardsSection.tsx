@@ -8,14 +8,18 @@ import { useFeedback } from "../context/feedbackContext";
 import { useSearchContext } from "../context/searchContext";
 
 interface FeedbackStars {
-  _id: string;
-  location: string;
+  _id: { 
+    companyName: string;
+    location: string;
+   };
   averageRating: number;
 }
 
 interface FeedbackReviews {
-  _id: string;
-  location: string;
+  _id: {
+    companyName: string;
+    location: string;
+  };
   totalReviews: number;
 }
 
@@ -58,14 +62,16 @@ function CardsSection() {
   }, []);
 
   const findAverageRating = (companyName: string, location: string) => {
-    const feedbackItem = feedbackStars.find(item => item._id === companyName && item.location === location);
+    const feedbackItem = feedbackStars.find(item => item._id.companyName === companyName && item._id.location === location);
     return feedbackItem ? feedbackItem.averageRating : 0;
   };
 
   const findTotalReviews = (companyName: string, location: string) => {
-    const feedbackItem = feedbackReviews.find(item => item._id === companyName && item.location === location);
+    const feedbackItem = feedbackReviews.find(item => item._id.companyName === companyName && item._id.location === location);
     return feedbackItem ? feedbackItem.totalReviews : 0;
   };
+
+  console.log(findTotalReviews("Asian Paints Ltd", "Kolkata, West Bengal"))
 
   const fetchMoreData = () => {
     setTimeout(() => {

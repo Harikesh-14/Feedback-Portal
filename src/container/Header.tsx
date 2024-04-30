@@ -8,7 +8,7 @@ import { BiUserPlus } from "react-icons/bi"
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
 
-  const { setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
+  const { userLoggedIn, setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
 
   useEffect(() => {
     fetch('http://localhost:3000/user/profile', {
@@ -67,9 +67,14 @@ function Header() {
       </nav>
 
       {/* Login and Register buttons hidden by default on mobile view */}
-      <div className={`md:flex md:flex-row gap-5 ${isNavOpen ? 'flex' : 'hidden'}`}>
+      <div className={`md:flex md:flex-row gap-5 items-center ${isNavOpen ? 'flex' : 'hidden'}`}>
         {isUserLoggedIn ? (
           <>
+            <p
+              className="font-medium text-lg tracking-wide bg-gray-300 p-2 rounded border-b-2 border-b-gray-400 text-gray-600 hover:text-gray-800 hover:border-b-[.15rem] select-none cursor-pointer transition ease-linear"
+            >
+              {userLoggedIn.firstName}
+            </p>
             <Link
               to={"#"}
               className="group flex items-center gap-1 px-6 py-2 bg-orange-600 rounded-full text-gray-100 shadow-md hover:bg-gray-800 hover:shadow-lg transition ease-linear"

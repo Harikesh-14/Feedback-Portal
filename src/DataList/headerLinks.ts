@@ -8,6 +8,10 @@ export const links =[
     path: '/reviews'
   },
   {
+    title: 'My reviews',
+    path: '/my-reviews'
+  },
+  {
     title: 'About',
     path: '/about'
   },

@@ -1,3 +1,11 @@
+export type HeaderT = {
+  Home: string
+  Reviews: string
+  MyReviews: string
+  About: string
+  Contact: string
+}
+
 export type AuthorT = {
   firstName: string
   lastName: string

@@ -8,7 +8,7 @@ export const links =[
     path: '/reviews'
   },
   {
-    title: 'My reviews',
+    title: 'MyReviews', // Update title to match HeaderT property name
     path: '/my-reviews'
   },
   {

@@ -9,7 +9,7 @@ import { HeaderT } from "../types";
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isActive, setIsActive] = useState<HeaderT>({
-    Home: "",
+    Home: "bg-gray-300",
     Reviews: "",
     MyReviews: "",
     About: "",

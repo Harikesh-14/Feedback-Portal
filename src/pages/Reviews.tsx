@@ -1,3 +1,4 @@
+import { format } from "date-fns"
 import InfiniteScroll from "react-infinite-scroll-component";
 import React, { useEffect, useState } from "react";
 import SearchContainer from "../container/SearchContainer";
@@ -65,7 +66,7 @@ export default function Reviews() {
                   industry={feedback.industry}
                   location={feedback.location}
                   rating={feedback.rating}
-                  createdAt={feedback.createdAt}
+                  createdAt={format(feedback.createdAt, "dd/MM/yyyy")}
                   author={feedback.author}
                 />
               </React.Fragment>

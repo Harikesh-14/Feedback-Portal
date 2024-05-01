@@ -8,7 +8,7 @@ function ViewPartialFeedback({ companyName, headquarter, feedback, industry, loc
 
   const fullFeedback = () => {
     toggleVisibility()
-    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt,author })
+    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt, author })
   }
 
   return (
@@ -24,7 +24,7 @@ function ViewPartialFeedback({ companyName, headquarter, feedback, industry, loc
         <div className="pb-5">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-semibold pb-2">{companyName}</h2>
-            <div className="flex flex-col-reverse justify-end items-center gap-1 mt-2">
+            <div className="flex flex-col-reverse justify-end items-end gap-1 mt-2">
               <p className="text-xs font-medium text-gray-400">{createdAt}</p>
               <div className="flex justify-center gap-1">
                 {[...Array(5)].map((_, index) => (

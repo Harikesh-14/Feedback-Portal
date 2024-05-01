@@ -6,6 +6,7 @@ import ViewPartialFeedback from "../container/ViewPartialFeedback"
 import ViewFullFeedback from "../container/ViewFullFeedback"
 import InfiniteScroll from "react-infinite-scroll-component"
 import Spinner from "../container/Spinner"
+import { format } from "date-fns"
 
 function MyReviews() {
   const [feedbackData, setFeedbackData] = useState<FeedbackT>([])
@@ -66,7 +67,7 @@ function MyReviews() {
                   industry={feedback.industry}
                   location={feedback.location}
                   rating={feedback.rating}
-                  createdAt={feedback.createdAt}
+                  createdAt={format(feedback.createdAt, "dd/MM/yyyy")}
                   author={feedback.author}
                 />
               </React.Fragment>

@@ -1,13 +1,20 @@
-import { Link } from "react-router-dom"
-import { links } from "../DataList/headerLinks"
-import { GrLogin, GrLogout } from "react-icons/gr"
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../context/userContext"
-import { BiUserPlus } from "react-icons/bi"
+import { Link } from "react-router-dom";
+import { links } from "../DataList/headerLinks";
+import { GrLogin, GrLogout } from "react-icons/gr";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../context/userContext";
+import { BiUserPlus } from "react-icons/bi";
+import { HeaderT } from "../types";
 
 function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false)
-
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isActive, setIsActive] = useState<HeaderT>({
+    Home: "",
+    Reviews: "",
+    MyReviews: "",
+    About: "",
+    Contact: ""
+  });
   const { userLoggedIn, setUserLoggedIn, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext)!;
 
   useEffect(() => {
@@ -31,7 +38,7 @@ function Header() {
       await fetch("http://localhost:3000/user/logout", {
         method: "POST",
         credentials: "include"
-      })
+      });
 
       setUserLoggedIn({
         id: "",
@@ -40,16 +47,28 @@ function Header() {
         lastName: "",
         phone: 0,
         message: ""
-      })
+      });
 
-      setIsUserLoggedIn(false)
+      setIsUserLoggedIn(false);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
-  const handleNavLinkClick = () => {
+  const handleNavLinkClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
+    const clickedLink = event.currentTarget.getAttribute("data-title");
     setIsNavOpen(false);
+    const updatedActiveState: HeaderT = {
+      Home: "",
+      Reviews: "",
+      MyReviews: "",
+      About: "",
+      Contact: ""
+    };
+    Object.keys(isActive).forEach((link) => {
+      updatedActiveState[link as keyof HeaderT] = link === clickedLink ? link : "";
+    });
+    setIsActive(updatedActiveState);
   };
 
   return (
@@ -59,14 +78,16 @@ function Header() {
       <nav className={`md:flex md:flex-row md:items-center ${isNavOpen ? 'flex' : 'hidden'}`}>
         <ul className="flex flex-col gap-4 md:flex-row">
           {links.map((link, index) => (
-            <li key={index} className="h-full flex justify-center items-center px-2 text-xl font-sans hover:bg-gray-300 md:py-3 rounded">
-              <Link to={link.path} onClick={handleNavLinkClick}>{link.title}</Link>
+            <li
+              key={index}
+              className={`h-full flex justify-center items-center px-2 text-xl font-sans hover:bg-gray-300 md:py-3 rounded ${isActive[link.title] ? "bg-gray-300" : ""}`}
+            >
+              <Link to={link.path} onClick={handleNavLinkClick} data-title={link.title}>{link.title}</Link>
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* Login and Register buttons hidden by default on mobile view */}
       <div className={`md:flex md:flex-row gap-5 items-center ${isNavOpen ? 'flex' : 'hidden'}`}>
         {isUserLoggedIn ? (
           <>
@@ -123,7 +144,7 @@ function Header() {
         </div>
       </button>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

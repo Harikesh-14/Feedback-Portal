@@ -3,15 +3,13 @@ import { FeedbackDataT } from "../types"
 import { BsStarFill } from "react-icons/bs"
 import { useViewFeedback } from "../context/viewFeedbackContext"
 
-function ViewPartialFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt }: FeedbackDataT) {
+function ViewPartialFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt, author }: FeedbackDataT) {
   const { toggleVisibility, setFullFeedback } = useViewFeedback()
 
   const fullFeedback = () => {
     toggleVisibility()
-    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt })
+    setFullFeedback({ companyName, headquarter, feedback, industry, location, rating, createdAt,author })
   }
-
-  console.log(companyName, headquarter, industry, location, rating, createdAt)
 
   return (
     <div className="w-full max-w-[40rem] my-5 flex mx-auto border rounded-lg shadow md:hover:shadow-lg md:hover:scale-[1.01] hover:-translate-y-1 transition-all">
@@ -44,7 +42,7 @@ function ViewPartialFeedback({ companyName, headquarter, feedback, industry, loc
           <p className="text-gray-900">{location}</p>
           <p className="border inline-block bg-slate-600 py-1 px-3 rounded-full text-xs mt-3 text-white">{industry}</p>
         </div>
-        <div className="w-full flex justify-center">
+        <div className="relative w-full flex justify-left">
           <Link
             to={""}
             className="w-[8rem] py-2 px-3 bg-orange-600 text-white rounded outline-none active:shadow-lg active:bg-orange-700"
@@ -52,6 +50,10 @@ function ViewPartialFeedback({ companyName, headquarter, feedback, industry, loc
           >
             Full feedback
           </Link>
+
+          <p className="absolute bottom-1 right-0 text-sm font-medium text-gray-400">
+            {author.firstName}
+          </p>
         </div>
       </div>
     </div>

@@ -67,6 +67,7 @@ function MyReviews() {
                   location={feedback.location}
                   rating={feedback.rating}
                   createdAt={feedback.createdAt}
+                  author={feedback.author}
                 />
               </React.Fragment>
             ))}

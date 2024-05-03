@@ -101,7 +101,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Jamnagar, Gujarat", "Delhi"],
     "industry": "Conglomerate (Petrochemicals, Telecommunications, Retail)",
-    "photo": "reliance_logo.png"
+    "photo": "../../reliance_logo.png"
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Kolkata, West Bengal", "Delhi"],
     "industry": "Consumer Goods (Food and Beverage)",
-    "photo": "tata_consumer_products_logo.jpg"
+    "photo": "../../tata_consumer_logo.webp"
   },
   {
     "id": 15,
@@ -117,7 +117,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Pune, Maharashtra", "Jamshedpur, Jharkhand"],
     "industry": "Automotive",
-    "photo": "tata_motors_logo.jpg"
+    "photo": "../../tata_motors_logo.jpg"
   },
   {
     "id": 16,
@@ -125,7 +125,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Jamshedpur, Jharkhand", "Kalinganagar, Odisha"],
     "industry": "Steel",
-    "photo": "tata_steel_logo.jpg"
+    "photo": "../../tata_steel_logo.jpg"
   },
   {
     "id": 17,
@@ -133,7 +133,7 @@ export const companiesData = [
     "headquarter": "Bengaluru, Karnataka",
     "locations": ["Bengaluru, Karnataka", "Pune, Maharashtra", "Chennai, Tamil Nadu"],
     "industry": "Information Technology, Consulting",
-    "photo": "wipro_logo.jpg"
+    "photo": "../../wipro_logo.svg"
   },
   {
     "id": 18,
@@ -141,7 +141,7 @@ export const companiesData = [
     "headquarter": "Chennai, Tamil Nadu",
     "locations": ["Chennai, Tamil Nadu", "Hyderabad, Telangana", "Delhi"],
     "industry": "Healthcare",
-    "photo": "apollo_hospitals_logo.jpg"
+    "photo": "../../apollo_hospitals_logo.svg"
   },
   {
     "id": 19,
@@ -149,7 +149,7 @@ export const companiesData = [
     "headquarter": "Hyderabad, Telangana",
     "locations": ["Hyderabad, Telangana", "Mumbai, Maharashtra", "Bengaluru, Karnataka"],
     "industry": "Pharmaceuticals",
-    "photo": "dr_reddys_lab_logo.jpg"
+    "photo": "../../dr_reddy_logo.webp"
   },
   {
     "id": 20,
@@ -157,7 +157,7 @@ export const companiesData = [
     "headquarter": "Bengaluru, Karnataka",
     "locations": ["Bengaluru, Karnataka", "Mumbai, Maharashtra", "Delhi"],
     "industry": "Consumer Goods (Jewelry, Watches, Eyewear)",
-    "photo": "titan_logo.jpg"
+    "photo": "../../titan_logo.png"
   },
   {
     "id": 21,
@@ -165,7 +165,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Kolkata, West Bengal"],
     "industry": "Banking, Financial Services",
-    "photo": "sbi_logo.jpg"
+    "photo": "../../sbi_logo.png"
   },
   {
     "id": 22,
@@ -173,7 +173,7 @@ export const companiesData = [
     "headquarter": "Chennai, Tamil Nadu",
     "locations": ["Chennai, Tamil Nadu", "Mumbai, Maharashtra", "Delhi"],
     "industry": "Financial Services (Non-Banking)",
-    "photo": "shriram_finance_logo.jpg"
+    "photo": "../../shriram_finance_logo.png"
   },
   {
     "id": 23,
@@ -181,7 +181,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Kochi, Kerala", "Kolkata, West Bengal"],
     "industry": "Oil and Gas",
-    "photo": "bharat_petroleum_logo.jpg"
+    "photo": "../../bharat_petroleum_logo.jpg"
   },
   {
     "id": 24,
@@ -189,7 +189,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Bengaluru, Karnataka"],
     "industry": "Banking, Financial Services",
-    "photo": "kotak_mahindra_bank_logo.jpg"
+    "photo": "../../kotak_mahindra_logo.png"
   },
   {
     "id": 25,
@@ -197,7 +197,7 @@ export const companiesData = [
     "headquarter": "Bengaluru, Karnataka",
     "locations": ["Bengaluru, Karnataka", "Pune, Maharashtra", "Hyderabad, Telangana"],
     "industry": "Information Technology, Consulting",
-    "photo": "infosys_logo.jpg"
+    "photo": "../../infosys_logo.svg"
   },
   {
     "id": 26,
@@ -205,7 +205,7 @@ export const companiesData = [
     "headquarter": "Pune, Maharashtra",
     "locations": ["Pune, Maharashtra", "Mumbai, Maharashtra", "Delhi"],
     "industry": "Financial Services (Consumer Finance)",
-    "photo": "bajaj_finance_logo.jpg"
+    "photo": "../../bajaj_finance_logo.png"
   },
   {
     "id": 27,
@@ -213,7 +213,7 @@ export const companiesData = [
     "headquarter": "Ahmedabad, Gujarat",
     "locations": ["Ahmedabad, Gujarat", "Mumbai, Maharashtra", "Delhi"],
     "industry": "Diversified (Infrastructure, Energy, Resources)",
-    "photo": "adani_enterprises_logo.jpg"
+    "photo": "../../adani_enterprises_logo.jpg"
   },
   {
     "id": 28,
@@ -221,7 +221,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Vadodara, Gujarat", "Chennai, Tamil Nadu"],
     "industry": "Pharmaceuticals",
-    "photo": "sun_pharma_logo.jpg"
+    "photo": "../../sun_pharma_logo.jpg"
   },
   {
     "id": 29,
@@ -229,7 +229,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Bellary, Karnataka", "Salem, Tamil Nadu"],
     "industry": "Steel",
-    "photo": "jsw_steel_logo.jpg"
+    "photo": "../../jsw_steel_logo.jpg"
   },
   {
     "id": 30,
@@ -237,7 +237,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Kolkata, West Bengal"],
     "industry": "Banking, Financial Services",
-    "photo": "hdfc_bank_logo.jpg"
+    "photo": "../../hdfc_bank_logo.jpg"
   },
   {
     "id": 31,
@@ -245,7 +245,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Chennai, Tamil Nadu", "Bengaluru, Karnataka"],
     "industry": "Information Technology, Consulting",
-    "photo": "tcs_logo.jpg"
+    "photo": "../../tcs_logo.jpg"
   },
   {
     "id": 32,
@@ -253,7 +253,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Bengaluru, Karnataka"],
     "industry": "Banking, Financial Services",
-    "photo": "icici_bank_logo.jpg"
+    "photo": "../../icici_bank_logo.jpg"
   },
   {
     "id": 33,
@@ -261,7 +261,7 @@ export const companiesData = [
     "headquarter": "Gurugram, Haryana",
     "locations": ["Gurugram, Haryana", "New Delhi, Delhi", "Mumbai, Maharashtra"],
     "industry": "Utilities (Electricity Transmission)",
-    "photo": "power_grid_logo.jpg"
+    "photo": "../../power_grid_logo.jpg"
   },
   {
     "id": 34,
@@ -269,7 +269,7 @@ export const companiesData = [
     "headquarter": "New Delhi, Delhi",
     "locations": ["New Delhi, Delhi", "Gurgaon, Haryana", "Mumbai, Maharashtra"],
     "industry": "Automotive",
-    "photo": "maruti_suzuki_logo.jpg"
+    "photo": "../../maruti_suzuki_logo.jpg"
   },
   {
     "id": 35,
@@ -277,7 +277,7 @@ export const companiesData = [
     "headquarter": "Pune, Maharashtra",
     "locations": ["Pune, Maharashtra", "Mumbai, Maharashtra", "New Delhi, Delhi"],
     "industry": "Banking, Financial Services",
-    "photo": "indusind_bank_logo.jpg"
+    "photo": "../../indusind_bank_logo.jpg"
   },
   {
     "id": 36,
@@ -285,7 +285,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Bengaluru, Karnataka"],
     "industry": "Banking, Financial Services",
-    "photo": "axis_bank_logo.jpg"
+    "photo": "../../axis_bank_logo.jpg"
   },
   {
     "id": 37,
@@ -293,7 +293,7 @@ export const companiesData = [
     "headquarter": "Noida, Uttar Pradesh",
     "locations": ["Noida, Uttar Pradesh", "Bengaluru, Karnataka", "Chennai, Tamil Nadu"],
     "industry": "Information Technology, Consulting",
-    "photo": "hcl_technologies_logo.jpg"
+    "photo": "../../hcl_technologies_logo.jpg"
   },
   {
     "id": 38,
@@ -301,7 +301,7 @@ export const companiesData = [
     "headquarter": "New Delhi, Delhi",
     "locations": ["New Delhi, Delhi", "Mumbai, Maharashtra", "Dehradun, Uttarakhand"],
     "industry": "Oil and Gas",
-    "photo": "ongc_logo.jpg"
+    "photo": "../../ongc_logo.jpg"
   },
   {
     "id": 39,
@@ -309,7 +309,7 @@ export const companiesData = [
     "headquarter": "New Delhi, Delhi",
     "locations": ["New Delhi, Delhi", "Noida, Uttar Pradesh", "Mumbai, Maharashtra"],
     "industry": "Utilities (Electricity Generation)",
-    "photo": "ntpc_logo.jpg"
+    "photo": "../../ntpc_logo.jpg"
   },
   {
     "id": 40,
@@ -317,7 +317,7 @@ export const companiesData = [
     "headquarter": "Kolkata, West Bengal",
     "locations": ["Kolkata, West Bengal", "New Delhi, Delhi", "Mumbai, Maharashtra"],
     "industry": "Mining",
-    "photo": "coal_india_logo.jpg"
+    "photo": "../../coal_india_logo.jpg"
   },
   {
     "id": 41,
@@ -325,7 +325,7 @@ export const companiesData = [
     "headquarter": "New Delhi, Delhi",
     "locations": ["New Delhi, Delhi", "Gurgaon, Haryana", "Mumbai, Maharashtra"],
     "industry": "Telecommunications",
-    "photo": "bharti_airtel_logo.jpg"
+    "photo": "../../bharti_airtel_logo.jpg"
   },
   {
     "id": 42,
@@ -333,7 +333,7 @@ export const companiesData = [
     "headquarter": "Pune, Maharashtra",
     "locations": ["Pune, Maharashtra", "Mumbai, Maharashtra", "Bengaluru, Karnataka"],
     "industry": "Information Technology, Consulting",
-    "photo": "tech_mahindra_logo.jpg"
+    "photo": "../../tech_mahindra_logo.jpg"
   },
   {
     "id": 43,
@@ -341,7 +341,7 @@ export const companiesData = [
     "headquarter": "Bangalore, Karnataka",
     "locations": ["Bangalore, Karnataka", "Pune, Maharashtra", "Chennai, Tamil Nadu"],
     "industry": "Information Technology, Consulting",
-    "photo": "lti_mindtree_logo.jpg"
+    "photo": "../../lti_mindtree_logo.jpg"
   },
   {
     "id": 44,
@@ -349,7 +349,7 @@ export const companiesData = [
     "headquarter": "Hyderabad, Telangana",
     "locations": ["Hyderabad, Telangana", "Vishakhapatnam, Andhra Pradesh", "Mumbai, Maharashtra"],
     "industry": "Pharmaceuticals",
-    "photo": "divis_lab_logo.jpg"
+    "photo": "../../divis_lab_logo.jpg"
   },
   {
     "id": 45,
@@ -357,7 +357,7 @@ export const companiesData = [
     "headquarter": "Ahmedabad, Gujarat",
     "locations": ["Ahmedabad, Gujarat", "Mumbai, Maharashtra", "Visakhapatnam, Andhra Pradesh"],
     "industry": "Ports, Logistics",
-    "photo": "adani_ports_logo.jpg"
+    "photo": "../../adani_ports_logo.jpg"
   },
   {
     "id": 46,
@@ -365,7 +365,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Bengaluru, Karnataka"],
     "industry": "Insurance",
-    "photo": "hdfc_life_logo.jpg"
+    "photo": "../../hdfc_life_logo.jpg"
   },
   {
     "id": 47,
@@ -373,7 +373,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "New Delhi, Delhi", "Kolkata, West Bengal"],
     "industry": "Insurance",
-    "photo": "sbi_life_logo.jpg"
+    "photo": "../../sbi_life_logo.jpg"
   },
   {
     "id": 48,
@@ -381,7 +381,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Ahmedabad, Gujarat", "Kolkata, West Bengal"],
     "industry": "Cement",
-    "photo": "ultratech_cement_logo.jpg"
+    "photo": "../../ultratech_cement_logo.jpg"
   },
   {
     "id": 49,
@@ -389,7 +389,7 @@ export const companiesData = [
     "headquarter": "Pune, Maharashtra",
     "locations": ["Pune, Maharashtra", "Aurangabad, Maharashtra", "Delhi"],
     "industry": "Automotive",
-    "photo": "bajaj_auto_logo.jpg"
+    "photo": "../../bajaj_auto_logo.jpg"
   },
   {
     "id": 50,
@@ -397,7 +397,7 @@ export const companiesData = [
     "headquarter": "Pune, Maharashtra",
     "locations": ["Pune, Maharashtra", "Mumbai, Maharashtra", "New Delhi, Delhi"],
     "industry": "Financial Services (Non-Banking)",
-    "photo": "bajaj_finserv_logo.jpg"
+    "photo": "../../bajaj_finserv_logo.jpg"
   },
   {
     "id": 51,
@@ -405,7 +405,7 @@ export const companiesData = [
     "headquarter": "Seattle, Washington, USA",
     "locations": ["Bengaluru, Karnataka", "Mumbai, Maharashtra", "Delhi"],
     "industry": "E-commerce",
-    "photo": "amazon_logo.jpg"
+    "photo": "../../amazon_logo.jpg"
   },
   {
     "id": 52,
@@ -413,7 +413,7 @@ export const companiesData = [
     "headquarter": "Bengaluru, Karnataka",
     "locations": ["Bengaluru, Karnataka", "Mumbai, Maharashtra", "Delhi", "Kolkata, West Bengal", "Chennai, Tamil Nadu", "Gaya, Bihar"], 
     "industry": "E-commerce",
-    "photo": "flipkart_logo.jpg"
+    "photo": "../../flipkart_logo.jpg"
   }
   ,{
     "id": 53,
@@ -421,7 +421,7 @@ export const companiesData = [
     "headquarter": "Redmond, Washington, USA",
     "locations": ["Bengaluru, Karnataka", "Hyderabad, Telangana", "Gurgaon, Haryana"],
     "industry": "Information Technology",
-    "photo": "microsoft_logo.jpg"
+    "photo": "../../microsoft_logo.jpg"
   },
   {
     "id": 54,
@@ -429,7 +429,7 @@ export const companiesData = [
     "headquarter": "Mountain View, California, USA",
     "locations": ["Bengaluru, Karnataka", "Hyderabad, Telangana", "Gurgaon, Haryana"],
     "industry": "Information Technology",
-    "photo": "google_logo.jpg"
+    "photo": "../../google_logo.jpg"
   },
   {
     "id": 55,
@@ -437,7 +437,7 @@ export const companiesData = [
     "headquarter": "Cupertino, California, USA",
     "locations": ["Bengaluru, Karnataka", "Hyderabad, Telangana", "Gurgaon, Haryana"],
     "industry": "Information Technology",
-    "photo": "apple_logo.jpg"
+    "photo": "../../apple_logo.jpg"
   },
   {
     "id": 56,
@@ -445,7 +445,7 @@ export const companiesData = [
     "headquarter": "Menlo Park, California, USA",
     "locations": ["Bengaluru, Karnataka", "Hyderabad, Telangana", "Gurgaon, Haryana"],
     "industry": "Information Technology",
-    "photo": "meta_logo.jpg"
+    "photo": "../../meta_logo.jpg"
   },
   {
     "id": 57,
@@ -453,14 +453,6 @@ export const companiesData = [
     "headquarter": "Seattle, Washington, USA",
     "locations": ["Mumbai, Maharashtra", "Bengaluru, Karnataka", "Delhi"],
     "industry": "Food and Beverage",
-    "photo": "tata_starbucks_logo.jpg"
-  },
-  {
-    "id": 58,
-    "companyName": "Nestle India Ltd",
-    "headquarter": "Vevey, Switzerland",
-    "locations": ["Gurgaon, Haryana", "Mumbai, Maharashtra", "Chennai, Tamil Nadu"],
-    "industry": "Food and Beverage",
-    "photo": "nestle_logo.jpg"
+    "photo": "../../tata_starbucks_logo.jpg"
   }
 ] as const;

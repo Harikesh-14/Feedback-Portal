@@ -70,24 +70,6 @@ function SearchContainer() {
           <BiPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
         </Link>
       </div>
-
-      <div className="flex flex-wrap gap-4 h-12 text-lg">
-        <div className="flex">
-          <select className="rounded cursor-pointer outline-none text-center bg-gray-300">
-            <option value="reviews">Reviews</option>
-            <option value="mostReviews">Most reviews</option>
-            <option value="leastReviews">Least reviews</option>
-          </select>
-        </div>
-
-        <div className="flex">
-          <select className="rounded cursor-pointer outline-none text-center bg-gray-300">
-            <option value="rating">Rating</option>
-            <option value="mostRating">Highest rating</option>
-            <option value="leastRating">Lowest rating</option>
-          </select>
-        </div>
-      </div>
     </section>
   )
 }

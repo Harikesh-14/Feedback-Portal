@@ -197,7 +197,7 @@ export const companiesData = [
     "headquarter": "Bengaluru, Karnataka",
     "locations": ["Bengaluru, Karnataka", "Pune, Maharashtra", "Hyderabad, Telangana"],
     "industry": "Information Technology, Consulting",
-    "photo": "../../infosys_logo.svg"
+    "photo": "../../infosys_logo.jpg"
   },
   {
     "id": 26,

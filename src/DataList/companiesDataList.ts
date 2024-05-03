@@ -5,7 +5,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Kolkata, West Bengal", "Delhi"],
     "industry": "Manufacturing (Paints)",
-    "photo": "asian_paints_logo.jpg"
+    "photo": "../../asian_paints_logo.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@ export const companiesData = [
     "headquarter": "Bengaluru, Karnataka",
     "locations": ["Bengaluru, Karnataka", "Delhi", "Mumbai, Maharashtra"],
     "industry": "Food Processing",
-    "photo": "britannia_logo.jpg"
+    "photo": "../../britannia_logo.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Pune, Maharashtra", "Delhi"],
     "industry": "Pharmaceuticals",
-    "photo": "cipla_logo.jpg"
+    "photo": "../../cipla_logo.webp"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@ export const companiesData = [
     "headquarter": "Gurugram, Haryana",
     "locations": ["Gurugram, Haryana", "Chennai, Tamil Nadu", "Mumbai, Maharashtra"],
     "industry": "Automotive",
-    "photo": "eicher_motors_logo.jpg"
+    "photo": "../../eicher_logo.png"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@ export const companiesData = [
     "headquarter": "Gurgaon, Haryana",
     "locations": ["Gurgaon, Haryana", "Mumbai, Maharashtra", "Chennai, Tamil Nadu"],
     "industry": "Food and Beverage",
-    "photo": "nestle_logo.jpg"
+    "photo": "../../nestle_logo.jpg"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Nagda, Madhya Pradesh", "Bangalore, Karnataka"],
     "industry": "Manufacturing (Textiles, Cement, Chemicals)",
-    "photo": "grasim_logo.jpg"
+    "photo": "../../Aditya_Birla_Grasim_Logo.png"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@ export const companiesData = [
     "headquarter": "New Delhi, Delhi",
     "locations": ["New Delhi, Delhi", "Gurgaon, Haryana", "Dharuhera, Haryana"],
     "industry": "Automotive",
-    "photo": "hero_motocorp_logo.jpg"
+    "photo": "../../hero_logo.png"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Nagpur, Maharashtra", "Singrauli, Madhya Pradesh"],
     "industry": "Metals (Aluminium, Copper)",
-    "photo": "hindalco_logo.jpg"
+    "photo": "../../Hindalco_Logo.png"
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Bangalore, Karnataka", "Gandhinagar, Gujarat"],
     "industry": "Consumer Goods",
-    "photo": "hindustan_unilever_logo.jpg"
+    "photo": "../../hindustan_unilever.jpeg"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@ export const companiesData = [
     "headquarter": "Kolkata, West Bengal",
     "locations": ["Kolkata, West Bengal", "Gurgaon, Haryana", "Mumbai, Maharashtra"],
     "industry": "Consumer Goods (FMCG, Hotels, Paperboards & Packaging)",
-    "photo": "itc_logo.jpg"
+    "photo": "../../itc_logo.png"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Chennai, Tamil Nadu", "Delhi"],
     "industry": "Construction, Engineering, Manufacturing",
-    "photo": "larsen_and_toubro_logo.jpg"
+    "photo": "../../l&t.png"
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Pune, Maharashtra", "Chennai, Tamil Nadu"],
     "industry": "Automotive, Agriculture, Aerospace",
-    "photo": "mahindra_and_mahindra_logo.jpg"
+    "photo": "../../mahindra_logo.jpg"
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@ export const companiesData = [
     "headquarter": "Mumbai, Maharashtra",
     "locations": ["Mumbai, Maharashtra", "Jamnagar, Gujarat", "Delhi"],
     "industry": "Conglomerate (Petrochemicals, Telecommunications, Retail)",
-    "photo": "reliance_industries_logo.jpg"
+    "photo": "reliance_logo.png"
   },
   {
     "id": 14,

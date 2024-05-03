@@ -71,8 +71,6 @@ function CardsSection() {
     return feedbackItem ? feedbackItem.totalReviews : 0;
   };
 
-  console.log(findTotalReviews("Asian Paints Ltd", "Kolkata, West Bengal"))
-
   const fetchMoreData = () => {
     setTimeout(() => {
       const nextCompanies = companiesData.slice(
@@ -107,6 +105,7 @@ function CardsSection() {
               headquarter={company.headquarter}
               location={location}
               industry={company.industry}
+              photo={company.photo}
               searchCriteria={searchCriteria}
               feedbackData={{
                 averageRating: findAverageRating(company.companyName, location),

@@ -9,6 +9,7 @@ type CompanyCardProps = {
   headquarter: string
   location: string
   industry: string
+  photo: string
   searchCriteria: string
   feedbackData: {
     averageRating: number
@@ -16,7 +17,7 @@ type CompanyCardProps = {
   }
 }
 
-function CompanyCard({ companyName, headquarter, location, industry, searchCriteria, feedbackData }: CompanyCardProps) {
+function CompanyCard({ companyName, headquarter, location, industry, searchCriteria, feedbackData, photo }: CompanyCardProps) {
   const { isFeedbackVisible, setIsFeedbackVisible, setFeedbackData } = useFeedback()
 
   const giveFeedback = () => {
@@ -43,7 +44,7 @@ function CompanyCard({ companyName, headquarter, location, industry, searchCrite
     <div className="w-full max-w-[40rem] my-5 flex mx-auto border rounded-lg shadow md:hover:shadow-lg md:hover:scale-[1.01] hover:-translate-y-1 transition-all">
       <div className="hidden md:w-1/5 md:flex justify-center items-center border-r">
         <img
-          src="../../google_logo.png"
+          src={photo}
           alt="Company Logo"
           className="w-28 h-28 p-4"
         />
